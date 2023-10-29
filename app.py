@@ -37,7 +37,10 @@ def menu():
 @app.route("/lab2/example")
 def example():
     name = 'Наталья Каменева'
-    return render_template('example.html', name=name)  
+    group = 'ФБИ-13'
+    course = '3'
+    lab_name= '2'
+    return render_template('example.html', name=name, group=group, course=course, lab_name=lab_name)  
 
 @app.route("/lab1")
 def lab1():
