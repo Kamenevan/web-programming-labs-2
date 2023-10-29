@@ -7,7 +7,7 @@ def start():
     return redirect("/menu", code=302)
 @app.route("/menu")
 def menu():
-     return """
+     return '''
 <!doctype html>
 <html>
     <head>
@@ -32,10 +32,10 @@ def menu():
         </footer>
     </body>
 <html>
-""" 
+'''
 @app.route("/lab1")
 def lab1():
-    return """
+    return '''
 <!doctype html>
 <html>
     <head>
@@ -77,10 +77,10 @@ def lab1():
         </footer>
     </body>
 </html>
-"""
+'''
 @app.route('/lab1/oak')
 def oak():
-    return """
+    return '''
     <!doctype html>
     <header>
         НГТУ, ФБ, WEB- программирование, часть 2. 
@@ -95,10 +95,10 @@ def oak():
             </footer>
         </body>
     </html>
-    """
+    '''
 @app.route('/lab1/student')
 def nstu():
-    return """
+    return '''
     <!doctype html>
     <header>
         НГТУ, ФБ, WEB- программирование, часть 2. 
@@ -106,17 +106,17 @@ def nstu():
     <html>
         <body>
             <h1>Каменева Наталья Анатольевна</h1>
-            <img src="''' + url_for('static', filename='nstu.jpeg') + '''">
+            <img src="''' + url_for('static', filename='student.jpg') + '''">
             <link rel="stylesheet" href="''' +url_for('static', filename='lab1.css')+'''"
             <footer> 
                 &copy; Каменева Наталья Анатольевна, ФБИ-11, 3 курс, 2023
             </footer>
         </body>
     </html>
-    """
+    '''
 @app.route('/lab1/python')
 def python():
-    return """
+    return '''
     <!doctype html>
     <html>
     <header>
@@ -135,28 +135,28 @@ def python():
         <footer>
             &copy; Каменева Наталья Анатольевна, ФБИ-13, 3 курс, 2023
         </footer>
-    </body>
-</html>
-"""
+        </body>
+    </html>
+    '''
 @app.route('/lab1/cat')
 def cat():
-    return """
-<!doctype html>
-<html>
+    return '''
+    <!doctype html>
+    <html>
     <header>
             НГТУ, ФБ, WEB- программирование, часть 2. 
     </header>
-    <body>
-        <h1>Кошки в Древнем Египте</h1> <br>
-        <p> Кошки в Древнем Египте достигли высокого статуса. 
-        Они охраняли жизненно важные посевы от грызунов и стали объектом восхищения.
-        Однако мурлыки не просто поедали мышей и крыс. Они также играли определённую роль в загробной жизни человека.
-        Древние египтяне носили амулеты с кошками, чтобы призвать защиту и благословение Бастет. Бесчисленные скульптуры 
-        кошек были сделаны в её честь и преподнесены в качестве жертвоприношений.</p> 
-        <img src="''' + url_for('static', filename='cat.jpg') + '''">    
-        <footer>
-            &copy; Каменева Натальпя Анатольевна, ФБИ-11, 3 курс, 2023
-        </footer> 
-    </body>
-</html>
-"""
+        <body>
+            <h1>Кошки в Древнем Египте</h1> <br>
+            <p> Кошки в Древнем Египте достигли высокого статуса. 
+            Они охраняли жизненно важные посевы от грызунов и стали объектом восхищения.
+            Однако мурлыки не просто поедали мышей и крыс. Они также играли определённую роль в загробной жизни человека.
+            Древние египтяне носили амулеты с кошками, чтобы призвать защиту и благословение Бастет. Бесчисленные скульптуры 
+            кошек были сделаны в её честь и преподнесены в качестве жертвоприношений.</p> 
+            <img src="''' + url_for('static', filename='cat.jpg') + '''">    
+            <footer>
+                &copy; Каменева Натальпя Анатольевна, ФБИ-11, 3 курс, 2023
+            </footer> 
+        </body>
+    </html>
+    '''
