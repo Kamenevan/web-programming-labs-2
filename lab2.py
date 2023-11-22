@@ -1,43 +1,7 @@
-from flask import Flask, redirect, url_for, render_template
-from lab1 import lab1
+from flask import Blueprint, redirect, url_for, render_template
+lab2 = Blueprint ('lab2',__name__)
 
-app = Flask(__name__)
-app.register_blueprint(lab1)
-
-@app.route("/")
-@app.route("/index")
-def start():
-    return redirect("/menu", code=302)
-
-@app.route("/menu")
-def menu():
-     return '''
-<!doctype html>
-<html>
-    <head>
-        <title> НГТУ, ФБ, Лабораторные работы </title>
-    </head>
-    <body>
-    <header>
-        НГТУ, ФБ, WEB- программирование, часть 2. Список лабораторных, меню 
-    </header>
-    <ol> 
-        <li> 
-            <a href="/lab1" target="_blank"> Лабораторная работа 1 </a> 
-        </li> 
-    </ol> 
-
-        <h1>web-сервер на flask</h1>
-        
-        <a href="/lab1">Первая лабораторная работа</a>
-
-        <footer>
-            &copy; Наталья Каменева, ФБИ-13, 3 курс, 2023
-        </footer>
-    </body>
-<html>
-'''
-@app.route("/lab2/example")
+@lab2.route("/lab2/example")
 def example():
     name = 'Наталья Каменева'
     group = 'ФБИ-13'
@@ -64,11 +28,10 @@ def example():
         ]
     return render_template('example.html', name=name, group=group, course=course, lab_name=lab_name, fruits=fruits, books=books)  
 
-@app.route ('/lab2/')
+@lab2.route ('/lab2/')
 def lab2():
     return render_template('lab2.html')
 
-@app.route ('/lab2/topphoto')
+@lab2.route ('/lab2/topphoto')
 def topphoto():
     return render_template('topphoto.html')
-app.register_blueprint(lab2)
