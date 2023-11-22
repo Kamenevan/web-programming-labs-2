@@ -21,10 +21,18 @@ def menu():
 
         <h1>web-сервер на flask</h1>
         
-        <a href="/lab1">Первая лабораторная работа</a>
-
-        <a href="/lab2">Вторая лабораторная работа</a>
-
+         <ol> 
+            <li> 
+                <a href="/lab1/" target="_blank"> Лабораторная работа 1 </a> 
+            </li> 
+            <li> 
+                <a href="/lab2/" target="_blank"> Лабораторная работа 2 </a> 
+            </li>
+            <li> 
+                <a href="/lab3/" target="_blank"> Лабораторная работа 3 </a> 
+            </li> 
+        </ol> 
+        
         <footer>
             &copy; Наталья Каменева, ФБИ-13, 3 курс, 2023
         </footer>
