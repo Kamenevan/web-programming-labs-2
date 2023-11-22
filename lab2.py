@@ -28,10 +28,12 @@ def example():
         ]
     return render_template('example.html', name=name, group=group, course=course, lab_name=lab_name, fruits=fruits, books=books)  
 
+
 @lab2.route ('/lab2/')
-def lab2():
+def lab():
     return render_template('lab2.html')
 
-@lab2.route ('/lab2/topphoto')
-def topphoto():
+
+@lab2.route ('/lab2/topphoto/')
+def topphoto1():
     return render_template('topphoto.html')
