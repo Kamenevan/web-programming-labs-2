@@ -4,13 +4,12 @@ import psycopg2
 
 lab5 = Blueprint('lab5', __name__)
 
-
 def dbConnect():
     conn = psycopg2.connect(
         host='127.0.0.1',
         database='knowledge_base_for_natasha',
         user='natasha_knowledge_base',
-        password='12345')
+        password='123')
 
     return conn
 
