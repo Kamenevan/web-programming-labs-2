@@ -4,6 +4,7 @@ import psycopg2
 
 lab5 = Blueprint('lab5', __name__)
 
+
 def dbConnect():
     conn = psycopg2.connect(
         host='127.0.0.1',
@@ -66,7 +67,6 @@ def registerPage():
 
     if not (username and password):
         errors.append("Пожалуйста, заполните все поля")
-        print(errors)
         return render_template("register.html", errors=errors)
 
 
@@ -75,7 +75,7 @@ def registerPage():
     conn = dbConnect()
     cur = conn.cursor()
 
-    cur.execute(f"SELECT username FROM users WHERE username = %s", (username,))
+    cur.execute(f"SELECT username FROM users WHERE username = '{username}';")
 
     if cur.fetchone() is not None:
         errors.append("Пользователь с данным именем уже существует")
@@ -84,11 +84,11 @@ def registerPage():
 
         return render_template("register.html", errors=errors)
 
-    cur.execute(f"INSERT INTO users (username, password) VALUES (%s, %s) RETURNING id", (username, hashPassword))
-    
+    cur.execute(f"INSERT INTO users (username, password) VALUES ('{username}','{hashPassword}');")   
 
     conn.commit()
-    dbClose(cur, conn)
+    conn.close()
+    cur.close()
 
     return redirect("/lab5/login_lab5")
 
@@ -107,13 +107,12 @@ def loginPage():
 
     if not (username or password):
         errors.append("Пожалуйста, заполните все поля")
-        print(errors)
         return render_template("login_lab5.html", errors=errors)
 
     conn = dbConnect()
     cur = conn.cursor()
 
-    cur.execute(f"SELECT id, password FROM users WHERE username = %s", (username,))
+    cur.execute(f"SELECT id, password FROM users WHERE username = '{username}'")
 
     result = cur.fetchone()
 
@@ -127,11 +126,8 @@ def loginPage():
     if check_password_hash(hashPassword, password):
         session['id'] = userID
         session['username'] = username
-        session['visibleUser'] = username
         dbClose(cur, conn)
-        return redirect("/lab5/")
-
-
+        return redirect("/lab5")
     else:
         errors.append("Неправильный логин или пароль!")
         return render_template("login_lab5.html", errors=errors)

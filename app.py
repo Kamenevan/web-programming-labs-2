@@ -3,7 +3,7 @@ from lab1 import lab1
 from lab2 import lab2
 from lab3 import lab3
 from lab4 import lab4
-#from lab5 import lab5
+from lab5 import lab5
 
 #from flask_sqlalchemy import SQLAlchemy
 #from Db import db
@@ -15,9 +15,9 @@ app.register_blueprint(lab1)
 app.register_blueprint(lab2)
 app.register_blueprint(lab3)
 app.register_blueprint(lab4)
-#app.register_blueprint(lab5)
+app.register_blueprint(lab5)
 
-#app.secret_key = '123'
+app.secret_key = '123'
 #user_db = 'natasha_knowledge_base_orm'
 #host_ip = '127.0.0.1'
 #host_port = '5432'
